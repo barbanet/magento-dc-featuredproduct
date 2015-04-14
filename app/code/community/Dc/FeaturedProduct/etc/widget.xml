@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Santex_FeaturedProduct
+ * 
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * 
+ * Module based on Dc_FeaturedProduct.
+ *
+ * @category   Santex
+ * @package    Santex_FeaturedProduct
+ * @copyright  Copyright (c) 2014 Damián Culotta. (http://www.damianculotta.com.ar/)
+ * @version    1.0.0
+ */
+-->
+<widgets>
+    <featuredproduct_group type="featuredproduct/group" module="featuredproduct">
+        <name>Featured Products</name>
+        <description type="desc">Show Featured Products</description>
+        <parameters>
+            <unique_id>
+                <required>1</required>
+            </unique_id>
+            <group>
+                <label>Group</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+                <source_model>featuredproduct/group</source_model>
+            </group>
+            <group_template>
+                <label>Template</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+                <source_model>featuredproduct/template</source_model>
+            </group_template>
+            <template>
+                <label>Frontend Template</label>
+                <visible>0</visible>
+                <type>select</type>
+                <value>featuredproduct/widget/dummy.phtml</value>
+            </template>
+            <group_title>
+                <label>Title</label>
+                <visible>1</visible>
+                <type>text</type>
+            </group_title>
+            <group_limit>
+                <label>Quantity of Products</label>
+                <visible>1</visible>
+                <type>text</type>
+            </group_limit>
+            <group_sort_order>
+                <label>Sort By</label>
+                <visible>1</visible>
+                <type>select</type>
+                <source_model>featuredproduct/sort</source_model>
+            </group_sort_order>
+            <group_sort_direction>
+                <label>Sort Direction</label>
+                <visible>1</visible>
+                <type>select</type>
+                <source_model>featuredproduct/direction</source_model>
+            </group_sort_direction>
+        </parameters>
+    </featuredproduct_group>
+</widgets>

@@ -1,0 +1,84 @@
+<?php
+/**
+ * Dc_FeaturedProduct
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   Dc
+ * @package    Dc_FeaturedProduct
+ * @copyright  Copyright (c) 2015 Damián Culotta. (http://www.damianculotta.com.ar/)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<?php $_gridJsObject = $this->getJsObjectName(); ?>
+<script type="text/javascript">
+//<![CDATA[
+
+    var groupProducts = $H(<?php echo $this->getProductsJson() ?>);
+    if (groupProducts.toQueryString()) {
+        $('in_group_products').value = groupProducts.toQueryString();
+    } else {
+        $('in_group_products').value = null;
+    }
+
+    <?php echo $_gridJsObject; ?>.reloadParams = {'selected_products[]':groupProducts.keys()};
+
+    function registerGroupProduct(grid, element, checked){
+        if(checked){
+            if(element.positionElement){
+                element.positionElement.disabled = false;
+                groupProducts.set(element.value, element.positionElement.value);
+            }
+        }
+        else{
+            if(element.positionElement){
+                element.positionElement.disabled = true;
+            }
+            groupProducts.unset(element.value);
+        }
+        $('in_group_products').value = groupProducts.toQueryString();
+        grid.reloadParams = {'selected_products[]':groupProducts.keys()};
+    }
+    function groupProductRowClick(grid, event){
+        var trElement = Event.findElement(event, 'tr');
+        var isInput   = Event.element(event).tagName == 'INPUT';
+        if(trElement){
+            var checkbox = Element.getElementsBySelector(trElement, 'input');
+            if(checkbox[0]){
+                var checked = isInput ? checkbox[0].checked : !checkbox[0].checked;
+                <?php echo $_gridJsObject ?>.setCheckboxChecked(checkbox[0], checked);
+            }
+        }
+    }
+    function positionChange(event){
+        var element = Event.element(event);
+        if(element && element.checkboxElement && element.checkboxElement.checked){
+            groupProducts.set(element.checkboxElement.value, element.value);
+            $('in_group_products').value = groupProducts.toQueryString();
+        }
+    }
+
+    var tabIndex = 1000;
+    function groupProductRowInit(grid, row){
+        var checkbox = $(row).getElementsByClassName('checkbox')[0];
+        var position = $(row).getElementsByClassName('input-text')[0];
+        if(checkbox && position){
+            checkbox.positionElement = position;
+            position.checkboxElement = checkbox;
+            position.disabled = !checkbox.checked;
+            position.tabIndex = tabIndex++;
+            Event.observe(position,'keyup',positionChange);
+        }
+    }
+
+    <?php echo $_gridJsObject ?>.rowClickCallback = groupProductRowClick;
+    <?php echo $_gridJsObject ?>.initRowCallback = groupProductRowInit;
+    <?php echo $_gridJsObject ?>.checkboxCheckCallback = registerGroupProduct;
+    <?php echo $_gridJsObject ?>.rows.each(function(row){groupProductRowInit(<?php echo $_gridJsObject ?>, row)});
+
+//]]>
+</script>
