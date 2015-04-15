@@ -72,7 +72,6 @@ class Dc_FeaturedProduct_Block_Group extends Mage_Catalog_Block_Product_Abstract
                                 ->joinTable('featuredproduct/item', 'product_id=entity_id', array('position'), 'group_id = ' . $this->_getGroupId(), 'inner')
                                 ;
             $_direction = $this->_getSortDirection();
-            Mage::log($_direction, null, 'debug.log', true);
             switch ($this->getData('group_sort_order')) {
                 case Dc_FeaturedProduct_Model_Sort::NAME:
                     $_products->addAttributeToSort('name', $_direction);
