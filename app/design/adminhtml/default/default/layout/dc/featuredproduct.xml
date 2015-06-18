@@ -24,25 +24,25 @@
             <action method="addCss"><name>dc/featuredproduct/css/style.css</name></action>
         </reference>
     </featuredproduct_default>
-    <featuredproduct_adminhtml_group_index>
+    <adminhtml_featuredproduct_group_index>
         <update handle="featuredproduct_default" />
         <reference name="content">
             <block type="featuredproduct/adminhtml_group" name="featuredproduct_group" />
         </reference>
-    </featuredproduct_adminhtml_group_index>
-    <featuredproduct_adminhtml_group_edit>
+    </adminhtml_featuredproduct_group_index>
+    <adminhtml_featuredproduct_group_edit>
         <update handle="featuredproduct_default" />
         <reference name="content">
             <block type="featuredproduct/adminhtml_group_js" name="featuredproduct.group.js" template="dc/featuredproduct/group/js.phtml" />
         </reference>
-    </featuredproduct_adminhtml_group_edit>
-    <featuredproduct_adminhtml_template_index>
+    </adminhtml_featuredproduct_group_edit>
+    <adminhtml_featuredproduct_template_index>
         <update handle="featuredproduct_default" />
         <reference name="content">
             <block type="featuredproduct/adminhtml_template" name="featuredproduct_template" />
         </reference>
-    </featuredproduct_adminhtml_template_index>
-    <featuredproduct_adminhtml_template_edit>
+    </adminhtml_featuredproduct_template_index>
+    <adminhtml_featuredproduct_template_edit>
         <update handle="featuredproduct_default" />
-    </featuredproduct_adminhtml_template_edit>
+    </adminhtml_featuredproduct_template_edit>
 </layout>

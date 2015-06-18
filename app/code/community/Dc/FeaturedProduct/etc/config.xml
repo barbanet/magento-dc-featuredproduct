@@ -23,13 +23,13 @@
     </modules>
     <admin>
         <routers>
-            <featuredproduct>
-                <use>admin</use>
+            <adminhtml>
                 <args>
-                    <module>Dc_FeaturedProduct</module>
-                    <frontName>featuredproduct</frontName>
+                    <modules>
+                        <Dc_FeaturedProduct after="Mage_Adminhtml">Dc_FeaturedProduct_Adminhtml</Dc_FeaturedProduct>
+                    </modules>
                 </args>
-            </featuredproduct>
+            </adminhtml>
         </routers>
     </admin>
     <adminhtml>

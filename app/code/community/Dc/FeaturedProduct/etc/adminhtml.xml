@@ -26,12 +26,12 @@
                         <featuredproduct_group module="featuredproduct">
                             <title>Groups</title>
                             <sort_order>10</sort_order>
-                            <action>featuredproduct/adminhtml_group</action>
+                            <action>adminhtml/featuredproduct_group</action>
                         </featuredproduct_group>
                         <featuredproduct_template module="featuredproduct">
                             <title>Templates</title>
                             <sort_order>20</sort_order>
-                            <action>featuredproduct/adminhtml_template</action>
+                            <action>adminhtml/featuredproduct_template</action>
                         </featuredproduct_template>
                     </children>
                 </featuredproduct>
