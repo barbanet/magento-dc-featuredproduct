@@ -10,12 +10,17 @@
  *
  * @category   Dc
  * @package    Dc_FeaturedProduct
- * @copyright  Copyright (c) 2015 Damián Culotta. (http://www.damianculotta.com.ar/)
+ * @copyright  Copyright (c) 2013-2015 Damián Culotta. (http://www.damianculotta.com.ar/)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
 class Dc_FeaturedProduct_Adminhtml_FeaturedProduct_TemplateController extends Mage_Adminhtml_Controller_Action
 {
+
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('cms/featuredproduct/featuredproduct_template');
+    }
 
     protected function _initAction()
     {

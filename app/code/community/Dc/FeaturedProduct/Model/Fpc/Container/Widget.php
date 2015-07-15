@@ -10,7 +10,7 @@
  *
  * @category   Dc
  * @package    Dc_FeaturedProduct
- * @copyright  Copyright (c) 2015 Damián Culotta. (http://www.damianculotta.com.ar/)
+ * @copyright  Copyright (c) 2013-2015 Damián Culotta. (http://www.damianculotta.com.ar/)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -19,16 +19,33 @@ class Dc_FeaturedProduct_Model_Fpc_Container_Widget extends Enterprise_PageCache
     
     const CACHE_PREFIX = 'FEATUREDPRODUCT_WIDGET_';
 
+    /**
+     * Get container individual cache id
+     *
+     * @return string
+     */
     protected function _getCacheId()
     {
         return self::CACHE_PREFIX . $this->_placeholder->getAttribute('unique_id');
     }
-    
+
+    /**
+     * Save data to cache storage
+     *
+     * @param $data
+     * @param $id
+     * @param array $tags
+     * @param null $lifetime
+     * @return bool
+     */
     protected function _saveCache($data, $id, $tags = array(), $lifetime = null)
     {
         return false;
     }
 
+    /**
+     * @return mixed
+     */
     protected function _renderBlock()
     {
         $block = $this->_getPlaceHolderBlock();

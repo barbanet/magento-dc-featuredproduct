@@ -10,7 +10,7 @@
  *
  * @category   Dc
  * @package    Dc_FeaturedProduct
- * @copyright  Copyright (c) 2015 Damián Culotta. (http://www.damianculotta.com.ar/)
+ * @copyright  Copyright (c) 2013-2015 Damián Culotta. (http://www.damianculotta.com.ar/)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -23,11 +23,6 @@ class Dc_FeaturedProduct_Block_Adminhtml_Template_Edit_Tabs extends Mage_Adminht
         $this->setId('template_tabs');
         $this->setDestElementId('edit_form');
         $this->setTitle(Mage::helper('featuredproduct')->__('Template'));
-    }
-
-    protected function _prepareLayout()
-    {
-        return parent::_prepareLayout();
     }
 
     protected function _beforeToHtml()

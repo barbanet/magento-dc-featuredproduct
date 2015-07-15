@@ -10,7 +10,7 @@
  *
  * @category   Dc
  * @package    Dc_FeaturedProduct
- * @copyright  Copyright (c) 2015 Damián Culotta. (http://www.damianculotta.com.ar/)
+ * @copyright  Copyright (c) 2013-2015 Damián Culotta. (http://www.damianculotta.com.ar/)
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
@@ -25,11 +25,6 @@ class Dc_FeaturedProduct_Block_Adminhtml_Group_Edit_Tabs extends Mage_Adminhtml_
         $this->setTitle(Mage::helper('featuredproduct')->__('Group'));
     }
 
-    protected function _prepareLayout()
-    {
-        return parent::_prepareLayout();
-    }
-
     protected function _beforeToHtml()
     {
         $this->addTab('form_section', array(
@@ -42,7 +37,6 @@ class Dc_FeaturedProduct_Block_Adminhtml_Group_Edit_Tabs extends Mage_Adminhtml_
             'title'     => Mage::helper('featuredproduct')->__('Products'),
             'content'   => $this->getLayout()->createBlock('featuredproduct/adminhtml_group_edit_tab_product')->toHtml(),
         ));
-                
         return parent::_beforeToHtml();
     }
 
