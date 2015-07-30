@@ -50,6 +50,15 @@
             </modules>
         </translate>
     </adminhtml>
+    <frontend>
+        <layout>
+            <updates>
+                <featuredproduct>
+                    <file>dc/featuredproduct.xml</file>
+                </featuredproduct>
+            </updates>
+        </layout>
+    </frontend>
     <global>
         <blocks>
             <featuredproduct>

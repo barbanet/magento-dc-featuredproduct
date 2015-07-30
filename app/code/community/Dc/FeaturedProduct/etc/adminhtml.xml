@@ -60,6 +60,18 @@
                             </featuredproduct>
                         </children>
                     </cms>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <featuredproduct>
+                                        <title>Featured Product</title>
+                                        <sort_order>1060</sort_order>
+                                    </featuredproduct>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
                 </children>
             </admin>
         </resources>
