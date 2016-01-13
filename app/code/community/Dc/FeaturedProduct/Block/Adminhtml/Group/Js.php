@@ -56,7 +56,8 @@ class Dc_FeaturedProduct_Block_Adminhtml_Group_Js extends Mage_Adminhtml_Block_T
     /**
      * @return mixed
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->getFeaturedGroup()->getId();
     }
 
